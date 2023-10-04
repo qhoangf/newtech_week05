@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h1>Chi tiết bài viết</h1>
+                <h3 class="card-title">Bài viết số {{blog.id}}</h3>
+                <p class="card-text">{{blog.content}}</p>
+            </div>
+        </div>
+        {{!-- --}}
+        <div class="mt-4">
+            <h2>Add a Comment</h2>
+            <form method="POST" action="/details/{{blog.id}}">
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Your Comment</label>
+                    <textarea id="comment" name="comment" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Comment</button>
+            </form>
+        </div>
+        {{!-- --}}
+        <div class="mt-4">
+            <h2>Comments</h2>
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    {{#each blog.comments as |comment user|}}
+                    <li class="list-group-item">
+                        <strong>{{blog.user}}</strong>
+                        <p>{{comment}}</p>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

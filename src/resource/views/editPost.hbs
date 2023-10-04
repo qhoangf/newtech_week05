@@ -1,0 +1,16 @@
+<!-- Main Content -->
+<div class="container mt-4">
+    <!-- Create Post -->
+    <form method="POST" action="{{blog.id}}?_method=PUT">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Modify Post</h5>
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" name="content"
+                        placeholder="What's on your mind?">{{blog.content}}</textarea>
+                </div>
+                <button class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+</div>

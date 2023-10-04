@@ -1,0 +1,35 @@
+<body>
+    <!-- News Feed -->
+    <div class="card mt-3">
+        <div class="card-body">
+            <h5 class="card-title">News Feed</h5>
+            {{#each blogs}}
+            <div class="media mt-3">
+                <div class="media-body">
+                    <a href="/details/{{this.id}}">
+                        <h5 class="mt-0">Bài Viết Số : {{this.id}}</h5>
+                    </a>
+                    {{this.content}}
+                </div>
+                {{!-- Update --}}
+                <form method="get" action="/details/edit/{{this.id}}">
+                    <span class="ml-4">
+                        <a href="/details/edit/{{this.id}}" class="btn btn-outline-success">Sửa</a>
+                    </span>
+                </form>
+                {{!-- Delete --}}
+                <form method="POST" action="/details/delete/{{this.id}}?_method=DELETE">
+                    <span class="ml-4">
+                    </span>
+                    <button type="submit" class="btn btn-outline-danger">Xóa</button>
+                </form>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
